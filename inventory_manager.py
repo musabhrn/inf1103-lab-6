@@ -136,13 +136,14 @@ class InventoryManager:
 
 def display_menu():
     print("=" * 35)
-    print("INVENTORY MANAGEMENT SYSTEM")
+    print("INVENTORY MANAGEMENT SYSTEM (OOP)")
     print("=" * 35)
     print()
 
+
 def main():
     display_menu()
-    inventory = load_inventory()
+    manager = InventoryManager()
 
     while True:
         print("--------MENU--------")
@@ -158,25 +159,24 @@ def main():
         print()
 
         if option == "1":
-            display_all(inventory)
+            manager.display_all()
         elif option == "2":
-            add_product(inventory)
+            manager.add_product()
         elif option == "3":
-            update_stock(inventory)
+            manager.update_stock()
         elif option == "4":
-            search_product(inventory)
+            manager.search_product()
         elif option == "5":
-            save_inventory(inventory)
+            manager.save_inventory()
         elif option == "6":
             print("Saving inventory before exit...")
-            with open(FILENAME, "w") as file:
-                json.dump(inventory, file, indent=4)
-            print("Inventory saved successfully.\n")
+            manager.save_inventory()
             print("Thank you for using Inventory Management System.")
             print("Program terminated.")
             break
         else: 
             print("Invalid option. Please try again.\n")
+
 
 if __name__ == "__main__":
     main()
