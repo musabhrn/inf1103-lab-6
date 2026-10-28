@@ -24,7 +24,7 @@ class Product:
     def stock(self):
         return self.__stock
 
-    def update_stock(self, quantity: int -> None):
+    def update_stock(self, quantity: int) -> None:
         self.__stock = quantity
 
     def display_information(self) -> None:
